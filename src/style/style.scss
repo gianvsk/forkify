@@ -1,0 +1,153 @@
+@font-face {
+    font-family: NunitoRegular;
+    src: url('../fonts/Nunito/NunitoSans_7pt_Condensed-Regular.woff');
+}
+
+@font-face {
+    font-family: NunitoSemiBold;
+    src: url("../fonts/Nunito/NunitoSans_7pt_Condensed-SemiBold.woff");
+}
+
+@font-face {
+    font-family: NunitoLight;
+    src: url("../fonts/Nunito/NunitoSans_7pt_Condensed-Light.woff");
+}
+
+body {
+    background-image: linear-gradient(to right bottom,#fbdb89,#f48982);
+    background-size:cover;
+    background-repeat: no-repeat;
+    font-family: NunitoRegular;
+}
+
+.row {
+    --bs-gutter-x: 0;
+}
+
+.navbar-setup {
+    height:120px;
+    background-color:#f9f5f3;
+}
+
+.navbar>.container {
+    margin: 10px;
+    width:100%;
+    justify-content: space-between;
+}
+
+.navbar-expand-lg {
+    justify-content: center;
+}
+
+.navbar-expand-lg .navbar-collapse {
+    justify-content: space-between;
+}
+
+.container-navbar-search {
+    position:relative;
+    width:200%;
+    height:52.5px;
+    border-radius: 30px 30px;
+}
+
+.rounded-navbar-input {
+    height:100%;
+    width:100%;
+    border-radius: 30px 30px;
+    border:0 ;
+    padding:5px 20px;
+}
+
+.btn {
+    position:absolute;
+    right:0;
+    top:0;
+    bottom:0;
+    background: linear-gradient(to right bottom,#fbdb89,#f48982);
+    border-radius: 30px 30px;
+    width:170px;
+    font-size:18px;
+    border:0;
+    z-index: 1;
+}
+
+span {
+    font-size: 1rem;
+    font-family: NunitoSemiBold;
+    letter-spacing: -0.5px;
+}
+
+.container-navbar-text {
+    width: 300px;
+}
+
+.rounded-navbar-input::placeholder {
+    color: #615551;
+}
+
+.icon-search {
+    height:20px;
+    width:20px;
+    margin-right: 5px;
+    color:white;
+}
+
+.icon-bookmark {
+    height:20px;
+    width:20px;
+    margin-right: 5px;
+    color: #f38e82;
+}
+
+.container-components {
+    min-height:100vh;
+    max-height:150vh;
+    overflow:hidden;
+}
+
+.results {
+    background-color: white;
+    height:100%;
+}
+
+.recipe {
+    background-color: #f9f5f3;
+    height:100%;
+}
+
+.recipe-message {
+    font-family: NunitoLight;
+    height:150px;
+
+    .icon-smile {
+        color:#f38e82;
+        width: 30px;
+        height: 30px
+    }
+
+    p {
+        width:50%;
+        font-size: 1.2rem;
+    }
+}
+
+.icon-recipe-container {
+    height:50px;
+    margin-right:10px;
+}
+
+.container-recipes {
+    box-sizing: content-box;
+    padding: 15px;
+
+    img {
+        height:50px;
+        width:50px;
+        border-radius: 50% 50%;
+    }
+
+    h3 {
+        font-size:1.45rem;
+        font-family: NunitoRegular;
+    }
+}

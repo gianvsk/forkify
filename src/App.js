@@ -1,24 +1,22 @@
-import logo from './logo.svg';
+import React from 'react'
+import logo from './logo.svg'
+import NavbarC from './components/navbar'
+import ContainerC from './components/container'
+import style from './style/style.css'
+import { useState } from 'react'
 import './App.css';
 
 function App() {
+
+  const [recipe, setRecipe] = useState('')
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <div className='row d-flex justify-content-center pt-5 pb-5'>
+    <NavbarC recipe={recipe} setRecipe={setRecipe}></NavbarC>
+    <ContainerC recipe={recipe} setRecipe={setRecipe}></ContainerC>
     </div>
+    </>
   );
 }
 
