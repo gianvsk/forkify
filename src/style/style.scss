@@ -13,9 +13,14 @@
     src: url("../fonts/Nunito/NunitoSans_7pt_Condensed-Light.woff");
 }
 
+@font-face {
+    font-family: NunitoMedium;
+    src: url("../fonts/Nunito/NunitoSans_7pt_Condensed-Medium.woff");
+}
+
 body {
-    background-image: linear-gradient(to right bottom,#fbdb89,#f48982);
-    background-size:cover;
+    background-image: linear-gradient(to right bottom, #fbdb89, #f48982);
+    background-size: cover;
     background-repeat: no-repeat;
     font-family: NunitoRegular;
 }
@@ -24,14 +29,18 @@ body {
     --bs-gutter-x: 0;
 }
 
+.svg-inline {
+    margin: 0;
+}
+
 .navbar-setup {
-    height:120px;
-    background-color:#f9f5f3;
+    height: 120px;
+    background-color: #f9f5f3;
 }
 
 .navbar>.container {
     margin: 10px;
-    width:100%;
+    width: 100%;
     justify-content: space-between;
 }
 
@@ -44,30 +53,30 @@ body {
 }
 
 .container-navbar-search {
-    position:relative;
-    width:200%;
-    height:52.5px;
+    position: relative;
+    width: 200%;
+    height: 52.5px;
     border-radius: 30px 30px;
 }
 
 .rounded-navbar-input {
-    height:100%;
-    width:100%;
+    height: 100%;
+    width: 100%;
     border-radius: 30px 30px;
-    border:0 ;
-    padding:5px 20px;
+    border: 0;
+    padding: 5px 20px;
 }
 
 .btn {
-    position:absolute;
-    right:0;
-    top:0;
-    bottom:0;
-    background: linear-gradient(to right bottom,#fbdb89,#f48982);
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: linear-gradient(to right bottom, #fbdb89, #f48982);
     border-radius: 30px 30px;
-    width:170px;
-    font-size:18px;
-    border:0;
+    width: 170px;
+    font-size: 18px;
+    border: 0;
     z-index: 1;
 }
 
@@ -86,68 +95,176 @@ span {
 }
 
 .icon-search {
-    height:20px;
-    width:20px;
+    height: 20px;
+    width: 20px;
     margin-right: 5px;
-    color:white;
+    color: white;
 }
 
 .icon-bookmark {
-    height:20px;
-    width:20px;
+    height: 20px;
+    width: 20px;
     margin-right: 5px;
     color: #f38e82;
 }
 
 .container-components {
-    min-height:100vh;
-    max-height:150vh;
-    overflow:hidden;
+    min-height: 100vh;
+    max-height: 250vh;
+    overflow: hidden;
 }
 
 .results {
     background-color: white;
-    height:100%;
-}
-
-.recipe {
-    background-color: #f9f5f3;
-    height:100%;
+    max-height: 200vh;
+    overflow-y:scroll;
 }
 
 .recipe-message {
     font-family: NunitoLight;
-    height:150px;
+    height: 150px;
 
     .icon-smile {
-        color:#f38e82;
+        color: #f38e82;
         width: 30px;
         height: 30px
     }
 
     p {
-        width:50%;
+        width: 50%;
         font-size: 1.2rem;
     }
 }
 
 .icon-recipe-container {
-    height:50px;
-    margin-right:10px;
+    height: 50px;
+    margin-right: 10px;
 }
 
 .container-recipes {
     box-sizing: content-box;
-    padding: 15px;
+    padding: 15px 0 15px 0px;
+    transition: transform 0.3s;
+
+    &:hover {
+        background-color: #f9f5f3;
+        cursor: pointer;
+        transform: translate(0, -5px);
+    }
 
     img {
-        height:50px;
-        width:50px;
+        height: 60px;
+        width: 60px;
         border-radius: 50% 50%;
     }
 
     h3 {
-        font-size:1.45rem;
+        font-size: 1rem;
         font-family: NunitoRegular;
+        color: #f38e82;
+        margin: 0;
+    }
+
+    p {
+        font-family: NunitoSemiBold;
+        color: #918581;
+        font-size: 0.8rem;
+        margin: 0;
+    }
+}
+
+.recipe {
+    background-color: #f9f5f3;
+
+    img,
+    button {
+        border: 0;
+        background-color: transparent;
+    }
+
+    .img-recipe {
+        height: 320px;
+        opacity: 0.6;
+        transform: scale(1.2);
+    }
+
+    .logo {
+        width: 60px;
+        height: 60px;
+        color: #f38e82;
+    }
+
+    .preparation {
+        height: 120px;
+
+        .icon-plus-minus {
+            transition: all 0.2s ease-out;
+            &:hover {
+                transform:  translate(0, -5px);
+            }
+        }
+
+        .icon-bookmark-container {
+            background-image: linear-gradient(to right bottom, #fbdb89, #f48982);
+            height: 40px;
+            width: 40px;
+            border-radius: 50% 50%;
+            transition: all 0.2s ease-out;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+    }
+}
+
+.div-image {
+    position: relative;
+    width: 100%;
+    background-image: linear-gradient(to right bottom, #fbdb89, #f48982);
+    overflow: hidden;
+}
+
+.div-image-text {
+    position: absolute;
+
+}
+
+.ingredients {
+    padding: 50px 50px 0;
+    background-color: #f2efee;
+}
+
+
+.listIngredients {
+    padding:25px;
+
+    .listIngredients__singleIngredient {
+        font-size:12px;
+        padding:15px;
+    }
+}
+
+.cooking {
+    padding:50px;
+
+    &__title {
+        font-size: 1.5rem;
+    }
+
+    &__paragraph {
+        color:#918581;
+        text-align: center;
+    }
+
+    &__button {
+        background: linear-gradient(to right bottom, #fbdb89, #f48982);
+        border-radius: 30px 30px;
+        width: 200px;
+        height:50px;
+        font-size: 18px;
+        border: 0;
+        color:white;
+
     }
 }

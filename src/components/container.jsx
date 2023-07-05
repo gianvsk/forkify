@@ -1,14 +1,17 @@
 import React from 'react';
 import ResultsC from './results';
 import RecipeC from './recipe';
-import style from '../style/style.css';
+import '../style/style.css';
+import {useState} from 'react'
 
-const ContainerC = ({recipe, setRecipe}) => {
+const ContainerC = ({recipe}) => {
+
+    const [recipeToPass, setRecipeToPass] = useState('')
 
     return (
-        <div className="container-components col-lg-10 d-flex justify-content-center row">
-            <ResultsC recipe={recipe}/>
-            <RecipeC recipe={recipe}/>
+        <div className="container-components col-lg-11 d-flex justify-content-center row">
+            <ResultsC recipe={recipe} setRecipeToPass={setRecipeToPass}/>
+            <RecipeC  recipe={recipe} recipeToPass={recipeToPass} />
         </div>
     )
 }

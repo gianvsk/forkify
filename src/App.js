@@ -1,8 +1,7 @@
 import React from 'react'
-import logo from './logo.svg'
 import NavbarC from './components/navbar'
 import ContainerC from './components/container'
-import style from './style/style.css'
+
 import { useState } from 'react'
 import './App.css';
 

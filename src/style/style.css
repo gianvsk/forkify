@@ -10,6 +10,10 @@
   font-family: NunitoLight;
   src: url("../fonts/Nunito/NunitoSans_7pt_Condensed-Light.woff");
 }
+@font-face {
+  font-family: NunitoMedium;
+  src: url("../fonts/Nunito/NunitoSans_7pt_Condensed-Medium.woff");
+}
 body {
   background-image: linear-gradient(to right bottom, #fbdb89, #f48982);
   background-size: cover;
@@ -19,6 +23,10 @@ body {
 
 .row {
   --bs-gutter-x: 0;
+}
+
+.svg-inline {
+  margin: 0;
 }
 
 .navbar-setup {
@@ -102,18 +110,14 @@ span {
 
 .container-components {
   min-height: 100vh;
-  max-height: 150vh;
+  max-height: 250vh;
   overflow: hidden;
 }
 
 .results {
   background-color: white;
-  height: 100%;
-}
-
-.recipe {
-  background-color: #f9f5f3;
-  height: 100%;
+  max-height: 200vh;
+  overflow-y: scroll;
 }
 
 .recipe-message {
@@ -137,14 +141,110 @@ span {
 
 .container-recipes {
   box-sizing: content-box;
-  padding: 15px;
+  padding: 15px 0 15px 0px;
+  transition: transform 0.3s;
+}
+.container-recipes:hover {
+  background-color: #f9f5f3;
+  cursor: pointer;
+  transform: translate(0, -5px);
 }
 .container-recipes img {
-  height: 50px;
-  width: 50px;
+  height: 60px;
+  width: 60px;
   border-radius: 50% 50%;
 }
 .container-recipes h3 {
-  font-size: 1.45rem;
+  font-size: 1rem;
   font-family: NunitoRegular;
+  color: #f38e82;
+  margin: 0;
+}
+.container-recipes p {
+  font-family: NunitoSemiBold;
+  color: #918581;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.recipe {
+  background-color: #f9f5f3;
+}
+.recipe img,
+.recipe button {
+  border: 0;
+  background-color: transparent;
+}
+.recipe .img-recipe {
+  height: 320px;
+  opacity: 0.6;
+  transform: scale(1.2);
+}
+.recipe .logo {
+  width: 60px;
+  height: 60px;
+  color: #f38e82;
+}
+.recipe .preparation {
+  height: 120px;
+}
+.recipe .preparation .icon-plus-minus {
+  transition: all 0.2s ease-out;
+}
+.recipe .preparation .icon-plus-minus:hover {
+  transform: translate(0, -5px);
+}
+.recipe .preparation .icon-bookmark-container {
+  background-image: linear-gradient(to right bottom, #fbdb89, #f48982);
+  height: 40px;
+  width: 40px;
+  border-radius: 50% 50%;
+  transition: all 0.2s ease-out;
+}
+.recipe .preparation .icon-bookmark-container:hover {
+  transform: scale(1.05);
+}
+
+.div-image {
+  position: relative;
+  width: 100%;
+  background-image: linear-gradient(to right bottom, #fbdb89, #f48982);
+  overflow: hidden;
+}
+
+.div-image-text {
+  position: absolute;
+}
+
+.ingredients {
+  padding: 50px 50px 0;
+  background-color: #f2efee;
+}
+
+.listIngredients {
+  padding: 25px;
+}
+.listIngredients .listIngredients__singleIngredient {
+  font-size: 12px;
+  padding: 15px;
+}
+
+.cooking {
+  padding: 50px;
+}
+.cooking__title {
+  font-size: 1.5rem;
+}
+.cooking__paragraph {
+  color: #918581;
+  text-align: center;
+}
+.cooking__button {
+  background: linear-gradient(to right bottom, #fbdb89, #f48982);
+  border-radius: 30px 30px;
+  width: 200px;
+  height: 50px;
+  font-size: 18px;
+  border: 0;
+  color: white;
 }/*# sourceMappingURL=style.css.map */
