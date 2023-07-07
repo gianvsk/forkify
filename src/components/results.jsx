@@ -6,7 +6,7 @@ import { api_key } from '../utils/constants';
 const ResultsC = ({ searchText, setRecipeId, page, setPage }) => {
 
     const [recipesFound, setRecipesFound] = useState([])
-    const [recipesToGetFromArray, setRecipeToGetFromArray] = useState(10)
+    const recipesToGetFromArray = 10
 
     const nextPage = () =>
         page > 0 && page * recipesToGetFromArray < recipesFound.length ? (
@@ -44,7 +44,7 @@ const ResultsC = ({ searchText, setRecipeId, page, setPage }) => {
                         </div>
                     </div>
                 </div>))}
-            <div className='results__buttonContainer d-flex justify-content-around w-100 pb-5 pt-2'>
+            {recipesFound.length > 0 && <div className='results__buttonContainer d-flex justify-content-around w-100 pb-5 pt-2'>
                 {page > 1 && <button className='results__buttonContainer-button' onClick={previousPage}>
                     <img className='pe-2' src='svg/arrow-left-salmon.png' width="20" height="10" alt="arrow-left-icon" />
                     Page {page - 1}</button>}
@@ -52,7 +52,7 @@ const ResultsC = ({ searchText, setRecipeId, page, setPage }) => {
                 <button className='results__buttonContainer-button' onClick={nextPage}>
                     Page {page + 1}
                     <img className='ps-2' src='svg/arrow-right-salmon.png' width="20" height="10" alt="arrow-right-icon" /></button>
-            </div>
+            </div>}
         </div>
     )
 
