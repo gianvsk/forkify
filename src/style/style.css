@@ -14,11 +14,22 @@
   font-family: NunitoMedium;
   src: url("../fonts/Nunito/NunitoSans_7pt_Condensed-Medium.woff");
 }
+@font-face {
+  font-family: NunitoBold;
+  src: url("../fonts/Nunito/NunitoSans_7pt_Condensed-Bold.woff");
+}
 body {
   background-image: linear-gradient(to right bottom, #fbdb89, #f48982);
   background-size: cover;
   background-repeat: no-repeat;
   font-family: NunitoRegular;
+}
+
+.div-container {
+  display: flex;
+  justify-content: center;
+  padding: 40px 100px;
+  border-radius: 5% 5%;
 }
 
 .row {
@@ -30,8 +41,18 @@ body {
 }
 
 .navbar-setup {
+  justify-content: space-around;
   height: 120px;
   background-color: #f9f5f3;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.navbar-brand-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .navbar > .container {
@@ -45,7 +66,24 @@ body {
 }
 
 .navbar-expand-lg .navbar-collapse {
-  justify-content: space-between;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.navbar-div-collapse {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.logoNavbar {
+  margin-left: 25px;
+}
+
+.navbar-brand {
+  padding: 0;
 }
 
 .container-navbar-search {
@@ -53,6 +91,12 @@ body {
   width: 200%;
   height: 52.5px;
   border-radius: 30px 30px;
+  max-width: 750px;
+  transition: all 0.5s;
+}
+.container-navbar-search:hover {
+  transform: translate(0, -2px);
+  box-shadow: 5px 5px 10px #d1c6c3;
 }
 
 .rounded-navbar-input {
@@ -74,6 +118,10 @@ body {
   font-size: 18px;
   border: 0;
   z-index: 1;
+  transition: all 0.2s ease-out;
+}
+.btn:hover {
+  transform: scale(1.05);
 }
 
 span {
@@ -82,8 +130,20 @@ span {
   letter-spacing: -0.5px;
 }
 
+.navbar-text {
+  height: 100%;
+}
+
 .container-navbar-text {
   width: 300px;
+}
+.container-navbar-text__button {
+  border: 0;
+  background-color: transparent;
+  transition: all 0.5s;
+}
+.container-navbar-text__button:hover {
+  background-color: #f2efee;
 }
 
 .rounded-navbar-input::-moz-placeholder {
@@ -109,20 +169,39 @@ span {
 }
 
 .container-components {
-  min-height: 100vh;
-  max-height: 250vh;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   overflow: hidden;
 }
 
 .results {
   background-color: white;
-  max-height: 200vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
   overflow-y: scroll;
+  min-height: 120vh;
+}
+
+.recipeFound {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
 }
 
 .recipe-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: NunitoLight;
   height: 150px;
+}
+.recipe-message .recipe-message-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 .recipe-message .icon-smile {
   color: #f38e82;
@@ -141,6 +220,10 @@ span {
 
 .container-recipes {
   box-sizing: content-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   padding: 15px 0 15px 0px;
   transition: transform 0.3s;
 }
@@ -169,13 +252,39 @@ span {
 
 .recipe {
   background-color: #f9f5f3;
+  font-family: NunitoRegular;
+  min-height: 120vh;
 }
 .recipe img,
 .recipe button {
   border: 0;
   background-color: transparent;
 }
+.recipe__container {
+  position: relative;
+  width: 100%;
+}
+.recipe__container-overflowImage {
+  overflow: hidden;
+}
+.recipe__container-textImage {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 60%;
+  transform: translate(-50%, 20%) skewY(-6deg);
+  text-align: center;
+}
+.recipe__container-textImage--text {
+  color: white;
+  font-size: 36px;
+  background-image: linear-gradient(to right bottom, #fbdb89, #f48982);
+  z-index: 5;
+  padding: 20px;
+  line-height: 2;
+}
 .recipe .img-recipe {
+  position: relative;
   height: 320px;
   opacity: 0.6;
   transform: scale(1.2);
@@ -186,7 +295,17 @@ span {
   color: #f38e82;
 }
 .recipe .preparation {
-  height: 120px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  height: 160px;
+  padding: 0px 30px;
+}
+.recipe .preparation .preparation-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
 }
 .recipe .preparation .icon-plus-minus {
   transition: all 0.2s ease-out;
@@ -195,21 +314,31 @@ span {
   transform: translate(0, -5px);
 }
 .recipe .preparation .icon-bookmark-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-image: linear-gradient(to right bottom, #fbdb89, #f48982);
-  height: 40px;
-  width: 40px;
+  height: 45px;
+  width: 45px;
   border-radius: 50% 50%;
   transition: all 0.2s ease-out;
 }
 .recipe .preparation .icon-bookmark-container:hover {
   transform: scale(1.05);
 }
-
-.div-image {
-  position: relative;
-  width: 100%;
-  background-image: linear-gradient(to right bottom, #fbdb89, #f48982);
-  overflow: hidden;
+.recipe .preparation .number {
+  font-family: NunitoBold;
+  letter-spacing: 1px;
+  font-size: 18px;
+  margin-right: 5px;
+}
+.recipe .preparation .text {
+  font-family: NunitoRegular;
+  font-size: 18px;
+  margin-right: 5px;
+}
+.recipe .preparation .spacer {
+  width: 150px;
 }
 
 .div-image-text {
@@ -217,6 +346,10 @@ span {
 }
 
 .ingredients {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 50px 50px 0;
   background-color: #f2efee;
 }
@@ -230,6 +363,9 @@ span {
 }
 
 .cooking {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 50px;
 }
 .cooking__title {
@@ -247,4 +383,67 @@ span {
   font-size: 18px;
   border: 0;
   color: white;
+  transition: all 0.2s ease-out;
+}
+.cooking__button:hover {
+  transform: scale(1.05);
+}
+
+.modal-content {
+  width: 900px;
+  height: 900px;
+}
+
+.form-recipe {
+  padding: 30px;
+}
+
+@media screen and (min-device-width: 0) and (max-device-width: 576px) {
+  .div-container {
+    padding: 30px;
+  }
+  .navbar-setup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    background-color: #f9f5f3;
+  }
+  .navbar-div-collapse {
+    width: auto;
+    height: auto;
+  }
+  .container-navbar-search {
+    width: 100%;
+  }
+  .container-components {
+    min-width: none;
+    max-width: none;
+  }
+  .navbar-brand-container {
+    display: flex;
+    justify-content: center;
+    width: auto;
+  }
+  .results {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-y: hidden;
+  }
+  .recipe__container-textImage--text {
+    font-size: 20px;
+    padding: 10px;
+  }
+  .recipe .preparation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 60px 30px;
+  }
+  .recipe .preparation .preparation-container {
+    margin: 15px;
+  }
 }/*# sourceMappingURL=style.css.map */
