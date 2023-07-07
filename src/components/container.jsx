@@ -9,7 +9,7 @@ const ContainerC = () => {
 
     const [searchText, setSearchText] = useState('')
     const [recipeId, setRecipeId] = useState()
-
+    const [page, setPage] = useState(1)
     const [bookmarkRecipes, setBookmarkRecipes] = useState([])
 
     const toggleRecipeToBookmark = (recipeId) => {
@@ -25,8 +25,8 @@ const ContainerC = () => {
 
     return (
         <div className="container-components d-flex col-12 row">
-            <NavbarC setSearchText={setSearchText} />
-            <ResultsC searchText={searchText} setRecipeId={setRecipeId}/>
+            <NavbarC setSearchText={setSearchText} setPage={setPage}/>
+            <ResultsC searchText={searchText} setRecipeId={setRecipeId} page={page} setPage={setPage}/>
             <RecipeC recipeId={recipeId} toggleRecipeToBookmark={toggleRecipeToBookmark} />
         </div>
     )

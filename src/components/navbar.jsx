@@ -7,7 +7,7 @@ import '../style/style.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
-const NavbarC = ({ setSearchText }) => {
+const NavbarC = ({ setSearchText, setPage }) => {
 
   const [text, setText] = useState('')
 
@@ -18,7 +18,7 @@ const NavbarC = ({ setSearchText }) => {
 
   return (
     <>
-      <Navbar collapseOnSelect expand="lg" className="navbar-setup d-flex flex-column flex-lg-row col-12 p-0">
+      <Navbar collapseOnSelect expand="lg" className="navbar-setup d-flex flex-row flex-lg-row col-12 p-0">
         <Navbar.Brand href="#home">
           <img src='images/logoForkify.png' className='logoNavbar' width="160" height="45" alt="logo" />
         </Navbar.Brand>
@@ -28,7 +28,8 @@ const NavbarC = ({ setSearchText }) => {
             <div className='navbar-div-collapse'>
               <div className="container-navbar-search">
                 <input className="rounded-navbar-input" onChange={(inputText) => setText(inputText.target.value)} type="type" placeholder='Search over 1,000,000 recipes...' />
-                <Button className="btn btn-custom" onClick={() => (setSearchText(text))}>
+                <Button className="btn btn-custom" onClick={() => (setSearchText(text),
+                                                                    setPage(1))}>
                   <FontAwesomeIcon className="icon-search" icon={faMagnifyingGlass} />SEARCH</Button>
               </div>
               <Navbar.Text className='d-flex align-items-center p-0'>

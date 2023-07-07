@@ -178,10 +178,26 @@ span {
   background-color: white;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: start;
+  justify-content: flex-start;
+  align-items: center;
   overflow-y: scroll;
   min-height: 120vh;
+}
+.results__buttonContainer {
+  height: 90px;
+}
+.results__buttonContainer-button {
+  font-family: NunitoBold;
+  background-color: #f9f5f3;
+  border-radius: 30px 30px;
+  width: 100px;
+  color: #f38e82;
+  font-size: 14px;
+  border: 0;
+  transition: all 0.2s ease-out;
+}
+.results__buttonContainer-button:hover {
+  transform: scale(1.05);
 }
 
 .recipeFound {
@@ -430,6 +446,7 @@ span {
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
+    min-height: 30vh;
     overflow-y: hidden;
   }
   .recipe__container-textImage--text {
