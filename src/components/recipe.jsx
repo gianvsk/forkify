@@ -21,12 +21,15 @@ const RecipeC = ({ recipeId, toggleRecipeToBookmark }) => {
     const addServing = () => setServings(servings + 1)
     const removeServing = () => servings > 1 ? setServings(servings - 1) : null
 
-    const getIngredientQuantity = (quantity) => {
-        return Math.sign(quantity * servings / 4) < 0 ?
-                quantity * servings / 4 * -1 :
-                quantity * servings / 4
-    }
+    const checkQuantity = (quantity) => quantity !== null ? quantity : '' 
 
+    const getIngredientQuantity = (quantity) => 
+        checkQuantity(quantity) ? (
+             Math.sign(quantity * servings / 4) < 0 ?
+                quantity * servings / 4 * -1 :
+                quantity * servings / 4 )
+            : ''
+    
     useEffect(() => {
         if (!recipeId) return
         fetchRecipe()

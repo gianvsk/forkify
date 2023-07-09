@@ -10,7 +10,7 @@ const ContainerC = () => {
     const [searchText, setSearchText] = useState('')
     const [recipeId, setRecipeId] = useState()
     const [page, setPage] = useState(1)
-    const [bookmarkRecipes, setBookmarkRecipes] = useState([])
+    const [bookmarkRecipes, setBookmarkRecipes] = useState()
 
     const toggleRecipeToBookmark = (recipeId) => {
         let recipes = JSON.parse(sessionStorage.getItem('recipes') || '[]')
@@ -25,7 +25,7 @@ const ContainerC = () => {
 
     return (
         <div className="container-components d-flex col-12 row">
-            <NavbarC setSearchText={setSearchText} setPage={setPage}/>
+            <NavbarC setSearchText={setSearchText} setPage={setPage} bookmarkRecipes={bookmarkRecipes}/>
             <ResultsC searchText={searchText} setRecipeId={setRecipeId} page={page} setPage={setPage}/>
             <RecipeC recipeId={recipeId} toggleRecipeToBookmark={toggleRecipeToBookmark} />
         </div>

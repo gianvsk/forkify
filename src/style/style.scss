@@ -83,7 +83,7 @@ body {
     height:100%; 
 }
 
-.logoNavbar {
+.logo-navbar {
     margin-left:25px;
 }
 
@@ -119,13 +119,13 @@ body {
     top: 0;
     bottom: 0;
     background: linear-gradient(to right bottom, #fbdb89, #f48982);
-    border-radius: 30px 30px;
+    border-radius: 30px 30px !important;
+    border-color:transparent !important;
     width: 170px;
     font-size: 18px;
     border: 0;
     z-index: 1;
     transition: all 0.2s ease-out;
-
     &:hover {
         transform: scale(1.05);
     }
@@ -184,7 +184,6 @@ span {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center; 
-    overflow-y:scroll;
     min-height:120vh;
 
     &__buttonContainer {
@@ -453,29 +452,70 @@ span {
     padding:30px;
 }
 
+.bookmark-recipe {
+/*     position:absolute;
+    width:300px;
+    top:0;
+    left:0; */
+    background-color: white;
+    z-index: 1;
+}
+
+.popover-custom{
+    left: -50px !important;
+    background-color: #f9f5f3;
+    width:250px;
+    top:-10px;
+}
+
 @media screen and (min-device-width:0) and (max-device-width: 576px) {
 
     .div-container {
         padding:30px;
     }
 
-    .navbar-setup {
-        display:flex;
-        flex-direction: column;
-        align-items: center;
+    .navbar {
         justify-content: center;
-        height:200px;
+    }
+
+    .navbar-setup {
+
+        height:300px;
         background-color: #f9f5f3;
     }
 
-    .navbar-div-collapse {
-        width:auto;
-        height:auto;
+    .logo-navbar {
+        margin-top:20px;
     }
 
-    .container-navbar-search {
+    .navbar-div-collapse {
+        display:flex;
+        flex-direction: column;
+        align-items:center;
+        justify-content: center;
         width:100%;
+        height:70%;
+        margin-bottom:50px
 
+    }
+
+/*     .div-navbar-search {
+        display:flex;
+        flex-direction: column;
+    }
+ */
+
+    .container-navbar-search {
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100px;
+    }
+
+    .btn {
+        position:relative;
     }
 
     .container-components {
@@ -486,7 +526,7 @@ span {
     .navbar-brand-container {
         display:flex;
         justify-content: center;
-        width:auto;
+        width:100%;
     }
      
     .results {
@@ -527,4 +567,20 @@ span {
         }
     }
 }
+}
+
+@media screen and (min-device-width:577px) and (max-device-width: 992px) {
+
+    .navbar-brand-container {
+        width:90%;
+    }
+
+    .logo-navbar {
+        margin-top:30px;
+    }
+
+    .navbar-setup {
+        height:200px;
+    }
+
 }

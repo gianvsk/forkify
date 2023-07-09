@@ -6,7 +6,7 @@ import { api_key } from '../utils/constants';
 const ResultsC = ({ searchText, setRecipeId, page, setPage }) => {
 
     const [recipesFound, setRecipesFound] = useState([])
-    const recipesToGetFromArray = 10
+    const [recipesToGetFromArray, setRecipeToGetFromArray] = useState(10)
 
     const nextPage = () =>
         page > 0 && page * recipesToGetFromArray < recipesFound.length ? (
@@ -33,7 +33,7 @@ const ResultsC = ({ searchText, setRecipeId, page, setPage }) => {
     }, [searchText])
 
     return (
-        <div className="results col-12 col-lg-4">
+        <div className="results col-12 col-lg-4 pt-5">
             {recipesFound && recipesFound.slice(checkPage(), checkPage() + 10).map((el, index) => (
                 <div key={index} className="container-recipes">
                     <div onClick={() => setRecipeId(el.id)} className='recipeFound p-2 px-4'>
@@ -48,11 +48,12 @@ const ResultsC = ({ searchText, setRecipeId, page, setPage }) => {
                 {page > 1 && <button className='results__buttonContainer-button' onClick={previousPage}>
                     <img className='pe-2' src='svg/arrow-left-salmon.png' width="20" height="10" alt="arrow-left-icon" />
                     Page {page - 1}</button>}
-
-                <button className='results__buttonContainer-button' onClick={nextPage}>
+ 
+                {page * recipesToGetFromArray < recipesFound.length && <button className='results__buttonContainer-button' onClick={nextPage}>
                     Page {page + 1}
                     <img className='ps-2' src='svg/arrow-right-salmon.png' width="20" height="10" alt="arrow-right-icon" /></button>
-            </div>}
+                    }
+            </div>} 
         </div>
     )
 
