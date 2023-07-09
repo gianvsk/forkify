@@ -26,7 +26,6 @@ const ResultsC = ({ searchText, setRecipeId, page, setPage }) => {
         fetch(`https://forkify-api.herokuapp.com/api/v2/recipes/?search=${searchText}&key=${api_key}`)
             .then((response) => response.json())
             .then((data) => {
-                console.log(data)
                 setRecipesFound(data.data.recipes)
             })
             .catch(err => console.error('error:' + err))

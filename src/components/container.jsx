@@ -2,7 +2,7 @@ import React from 'react';
 import ResultsC from './results';
 import RecipeC from './recipe';
 import '../style/style.css';
-import {useState , useEffect} from 'react'
+import {useState} from 'react'
 import NavbarC from './navbar';
 
 const ContainerC = () => {

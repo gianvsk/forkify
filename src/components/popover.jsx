@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { OverlayTrigger, Button, Popover } from 'react-bootstrap';
+import { OverlayTrigger, Popover } from 'react-bootstrap';
 import '../style/style.css'
 import { api_key } from '../utils/constants';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -13,7 +13,6 @@ const MyComponent = ({bookmarkRecipes}) => {
     useEffect(() => {
       let recipes = JSON.parse(sessionStorage.getItem('recipes') || '[]');
       recipes.map((el) => {
-        console.log(el);
         fetch(`https://forkify-api.herokuapp.com/api/v2/recipes/${el}?key=${api_key}`)
           .then((response) => response.json())
           .then((data) => {
@@ -23,8 +22,6 @@ const MyComponent = ({bookmarkRecipes}) => {
               );
               return [...updatedRecipeFound, data.data.recipe];
             });
-            console.log(data.data.recipe);
-            console.log(recipeFound);
           })
           .catch((err) => console.error('error:' + err));
       });
