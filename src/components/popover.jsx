@@ -12,7 +12,7 @@ const MyComponent = ({bookmarkRecipes}) => {
 
     useEffect(() => {
       let recipes = JSON.parse(sessionStorage.getItem('recipes') || '[]');
-      recipes.map((el) => {
+      recipes.map((el) => (
         fetch(`https://forkify-api.herokuapp.com/api/v2/recipes/${el}?key=${api_key}`)
           .then((response) => response.json())
           .then((data) => {
@@ -23,8 +23,8 @@ const MyComponent = ({bookmarkRecipes}) => {
               return [...updatedRecipeFound, data.data.recipe];
             });
           })
-          .catch((err) => console.error('error:' + err));
-      });
+          .catch((err) => console.error('error:' + err))
+          ));
     }, [bookmarkRecipes]);
 
   const popoverClickRootClose = (

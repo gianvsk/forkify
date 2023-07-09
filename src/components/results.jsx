@@ -6,7 +6,7 @@ import { api_key } from '../utils/constants';
 const ResultsC = ({ searchText, setRecipeId, page, setPage }) => {
 
     const [recipesFound, setRecipesFound] = useState([])
-    const [recipesToGetFromArray, setRecipeToGetFromArray] = useState(10)
+    const recipesToGetFromArray = 10
 
     const nextPage = () =>
         page > 0 && page * recipesToGetFromArray < recipesFound.length ? (
