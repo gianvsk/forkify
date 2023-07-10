@@ -24,7 +24,7 @@ const ContainerC = () => {
     }
 
     return (
-        <div className="container-components d-flex col-12 row">
+        <div className="container-components d-flex col-10 row">
             <NavbarC setSearchText={setSearchText} setPage={setPage} bookmarkRecipes={bookmarkRecipes}/>
             <ResultsC searchText={searchText} setRecipeId={setRecipeId} page={page} setPage={setPage}/>
             <RecipeC recipeId={recipeId} toggleRecipeToBookmark={toggleRecipeToBookmark} />
