@@ -278,14 +278,14 @@ span {
   border: 0;
   background-color: transparent;
 }
-div .recipe__container {
+.recipe__container {
   position: relative;
   width: 100%;
 }
-div .recipe__container-overflowImage {
+.recipe__container-overflowImage {
   overflow: hidden;
 }
-div .recipe__container-textImage {
+.recipe__container-textImage {
   position: absolute;
   left: 50%;
   bottom: 0;
@@ -293,7 +293,7 @@ div .recipe__container-textImage {
   transform: translate(-50%, 20%) skewY(-6deg);
   text-align: center;
 }
-div .recipe__container-textImage--text {
+.recipe__container-textImage--text {
   color: white;
   font-size: 36px;
   background-image: linear-gradient(to right bottom, #fbdb89, #f48982);
@@ -314,7 +314,7 @@ div .recipe__container-textImage--text {
 }
 .recipe .preparation {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   height: 160px;
   padding: 0px 30px;
