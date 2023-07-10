@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFaceSmile } from '@fortawesome/free-solid-svg-icons';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { api_key } from '../utils/constants';
 
 const RecipeC = ({ recipeId, toggleRecipeToBookmark }) => {
@@ -10,13 +10,13 @@ const RecipeC = ({ recipeId, toggleRecipeToBookmark }) => {
     const [ingredients, setIngredients] = useState([])
     const [recipe, setRecipe] = useState(null)
 
-    const fetchRecipe = async () => {
+    const fetchRecipe = useCallback(async () => {
         const response = await fetch(`https://forkify-api.herokuapp.com/api/v2/recipes/${recipeId}?key=${api_key}`)
         const json = await response.json()
         if (!json.data?.recipe) return
         setRecipe(json.data.recipe)
         setIngredients(json.data.recipe.ingredients)
-    }
+    }, [recipeId]);
 
     const addServing = () => setServings(servings + 1)
     const removeServing = () => servings > 1 ? setServings(servings - 1) : null
@@ -33,7 +33,7 @@ const RecipeC = ({ recipeId, toggleRecipeToBookmark }) => {
     useEffect(() => {
         if (!recipeId) return
         fetchRecipe()
-    }, [recipeId])
+    }, [recipeId, fetchRecipe])
 
     return (
         <div className="recipe col-12 col-lg-8">
