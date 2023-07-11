@@ -32,18 +32,17 @@ const ResultsC = ({ searchText, setRecipeId, page, setPage }) => {
     }, [searchText])
 
     return (
-        <div className="results col-12 col-lg-4 pt-5">
+        <div className="results d-flex align-items-start flex-sm-column justify-content-sm-center align-items-sm-start justify-content-lg-start col-12 col-lg-5 pt-5">
             {recipesFound && recipesFound.slice(checkPage(), checkPage() + 10).map((el, index) => (
-                <div key={index} className="container-recipes">
-                    <div onClick={() => setRecipeId(el.id)} className='recipeFound p-2 px-4'>
-                        <img src={el.image_url} alt="recipe img" />
+                <div key={index} onClick={() => setRecipeId(el.id)} className="container-recipes d-flex flex-column justify-content-start align-items-start justify-content-sm-center align-items-sm-center flex-lg-row justify-content-lg-start align-items-lg-center w-md-100">
+                        <img className='container-recipes__image me-5 me-sm-2' src={el.image_url} alt="recipe img" />
                         <div className="mx-3">
                             <h3>{el.title.toUpperCase()}</h3>
                             <p>{el.publisher.toUpperCase()}</p>
                         </div>
                     </div>
-                </div>))}
-            {recipesFound.length > 0 && <div className='results__buttonContainer d-flex justify-content-around w-100 pb-5 pt-2'>
+                    ))}
+            {recipesFound.length > 0 && <div className='results__buttonContainer d-flex flex-column justify-content-around flex-sm-row w-100 pb-sm-5 pt-sm-2 mt-md-4'>
                 {page > 1 && <button className='results__buttonContainer-button' onClick={previousPage}>
                     <img className='pe-2' src='svg/arrow-left-salmon.png' width="20" height="10" alt="arrow-left-icon" />
                     Page {page - 1}</button>}

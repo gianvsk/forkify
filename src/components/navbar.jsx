@@ -4,11 +4,9 @@ import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import '../style/style.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import MyComponent from './popover'
 
-const NavbarC = ({ setSearchText, setPage, bookmarkRecipes }) => {
+const NavbarC = ({ setSearchText, setPage, bookmarkRecipes, setRecipeId }) => {
 
   const [text, setText] = useState('')
 
@@ -31,13 +29,13 @@ const NavbarC = ({ setSearchText, setPage, bookmarkRecipes }) => {
                 <div className="container-navbar-search mx-2">
                   <input className="rounded-navbar-input mb-2" onChange={(inputText) => setText(inputText.target.value)} type="type" placeholder='Search over 1,000,000 recipes...' />
                   <Button className="btn btn__custom" onClick={() => ([setSearchText(text),setPage(1)])}>
-                    <FontAwesomeIcon className="icon-search" icon={faMagnifyingGlass} />SEARCH</Button>
+                    <img src='svg/search.png' className="icon-search" alt='search-icon'/>SEARCH</Button>
                 </div>
                 <Navbar.Text className='d-flex align-items-center p-0'>
                   <div className="container-navbar-text d-flex flex-row justify-content-center">
                     <button className='container-navbar-text__button d-flex align-items-center' onClick={handleShow}><img src='svg/edit.png' className='mb-1' width="30" height="30" alt="edit icon" />ADD RECIPE</button>
 
-                    <MyComponent bookmarkRecipes={bookmarkRecipes} />
+                    <MyComponent bookmarkRecipes={bookmarkRecipes} setRecipeId={setRecipeId} />
 
                     <Modal show={show} onHide={handleClose} animation={false}>
                       <Modal.Header closeButton>

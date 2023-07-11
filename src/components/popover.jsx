@@ -6,11 +6,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
-const MyComponent = ({bookmarkRecipes}) => {
+const MyComponent = ({bookmarkRecipes, setRecipeId}) => {
 
   const [recipeFound, setRecipeFound] = useState([])
 
     useEffect(() => {
+      setRecipeFound([])
       let recipes = JSON.parse(sessionStorage.getItem('recipes') || '[]');
       recipes.map((el) => (
         fetch(`https://forkify-api.herokuapp.com/api/v2/recipes/${el}?key=${api_key}`)
@@ -19,28 +20,26 @@ const MyComponent = ({bookmarkRecipes}) => {
             setRecipeFound((prevRecipeFound) => {
               const updatedRecipeFound = prevRecipeFound.filter(
                 (recipe) => recipe.id !== data.data.recipe.id
-              );
+              )
               return [...updatedRecipeFound, data.data.recipe];
             });
           })
           .catch((err) => console.error('error:' + err))
-          ));
+          )) 
     }, [bookmarkRecipes]);
 
   const popoverClickRootClose = (
     <Popover id="popover-trigger-click-root-close" className="popover-custom" title="Popover bottom">
           {recipeFound && 
-          <div>
-              {recipeFound.map((el,index) => 
-                            <div key={index} className="container-recipes">
-                            <div /* onClick={() => setRecipeId(el.id)} */ className='recipeFound p-2 px-4'>
-                                <img src={el.image_url} alt="recipe img" />
+            <div>
+              {recipeFound.map((el,index) =>                          
+                            <div key={index} onClick={() => setRecipeId(el.id)} className='container-recipes d-flex flex-column justify-content-start align-items-start justify-content-sm-center align-items-sm-center flex-lg-row justify-content-lg-start align-items-lg-center p-4'>
+                                <img className='container-recipes__image' src={el.image_url} alt="recipe img" />
                                 <div className="mx-3">
                                     <h3>{el.title.toUpperCase()}</h3>
                                     <p>{el.publisher.toUpperCase()}</p>
                                 </div>
                             </div>
-                        </div>
                             )}
                 </div>
         

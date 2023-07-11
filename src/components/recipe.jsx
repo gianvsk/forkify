@@ -1,6 +1,4 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFaceSmile } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState, useCallback } from 'react';
 import { api_key } from '../utils/constants';
 
@@ -36,13 +34,11 @@ const RecipeC = ({ recipeId, toggleRecipeToBookmark }) => {
     }, [recipeId, fetchRecipe])
 
     return (
-        <div className="recipe col-12 col-lg-8">
+        <div className="recipe col-12 col-lg-7">
             {!recipe &&
-                <div className="recipe-message">
-                    <div className="recipe-message-container">
-                        <div className="icon-recipe-container"><FontAwesomeIcon className="icon-smile" icon={faFaceSmile} /></div>
+                <div className="recipe-message mt-8 mt-sm-4 mt-md-0">
+                        <img src='svg/smile.png' className="icon-smile me-2 mb-4" alt='smile-icon'/>
                         <p>Start by searching for a recipe or an ingredient. Have fun!</p>
-                    </div>
                 </div>}
             {recipe &&
                 <div>
